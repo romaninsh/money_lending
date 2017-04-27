@@ -27,7 +27,21 @@ class MyApp extends \atk4\ui\App {
     function __construct($where = 'inside') {
         parent::__construct();
 
-        $this->db = new \atk4\data\Persistence_SQL('mysql:host=127.0.0.1;dbname=money_lending', 'root', 'root');
+        if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
+            // we are on Heroku
+            preg_match('|([a-z]+)://([^:]*)(:(.*))?@([A-Za-z0-9\.-]*)(/([0-9a-zA-Z_/\.]*))|',
+                $_ENV['CLEARDB_DATABASE_URL'],$matches);
+
+            $dsn=array(
+                $matches[1].':host='.$matches[5].';dbname='.$matches[7],
+                $matches[2],
+                $matches[4]
+            );
+            $this->db = new \atk4\data\Persistence_SQL($dsn[0], $dsn[1], $dsn[2]);
+        } else {
+            // Not on Heroku
+            $this->db = new \atk4\data\Persistence_SQL('mysql:host=127.0.0.1;dbname=money_lending', 'root', 'root');
+        }
 
         if ($where == 'login') {
             $this->initLayout('Centered');
