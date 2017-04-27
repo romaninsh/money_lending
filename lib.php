@@ -20,7 +20,7 @@ class User extends \atk4\data\Model {
 
 class MyApp extends \atk4\ui\App {
 
-    public $title = 'Money Lending App 0.1';
+    public $title = 'Money Lending App 0.2';
 
     public $db;
 
