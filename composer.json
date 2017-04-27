@@ -1,0 +1,6 @@
+{
+    "minimum-stability": "dev",
+    "require": {
+        "atk4/ui": "dev-develop"
+    }
+}
