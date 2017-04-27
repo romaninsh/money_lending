@@ -2,4 +2,9 @@
 require'lib.php';
 
 $app = new MyApp();
-$app->layout->add('CRUD')->setModel(new User($app->db));
+
+$crud = $app->layout->add('CRUD');
+
+$crud->addColumn('name', new \atk4\ui\TableColumn\Link(['loan', 'contact_id'=>'{$id}']));
+
+$crud->setModel($app->user->ref('Contact'), ['email', 'phone_number']);

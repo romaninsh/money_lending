@@ -2,6 +2,12 @@
 require'lib.php';
 
 
+if (isset($_SESSION['user_id'])) {
+    header('Location: contact.php');
+    exit;
+}
+
+
 $app = new MyApp('login');
 
 $form = $app->layout->add('Form');
@@ -21,9 +27,12 @@ $form->onSubmit(function($form) {
         return $form->error('password', 'Incorrect password');
     }
 
+    $_SESSION['user_id'] = $m->id;
+
     // Start Session
 
-    return $form->success('You are logged in!');
+    return new \atk4\ui\jsExpression('document.location="contact.php"');
+    //return $form->success('You are logged in!');
 
 });
 

@@ -1,5 +1,6 @@
 <?php
 require'vendor/autoload.php';
+session_start();
 
 class User extends \atk4\data\Model {
     public $table = 'user';
@@ -15,14 +16,50 @@ class User extends \atk4\data\Model {
             'surname'
         ]);
 
+        $this->hasMany('Contact', new Contact());
+
+    }
+}
+
+class Contact extends \atk4\data\Model {
+    public $table = 'contact';
+
+    function init()
+    {
+        parent::init();
+
+        $this->addFields([
+            'name','email','phone_number'
+        ]);
+
+        $this->hasOne('user_id', new User());
+        $this->hasMany('Loan', new Loan());
+    }
+}
+
+class Loan extends \atk4\data\Model {
+    public $table = 'loan';
+
+    function init()
+    {
+        parent::init();
+
+        $this->hasOne('contact_id', new Contact());
+
+        $this->addField('amount', ['type'=>'money']);
+        $this->addField('due', ['type'=>'date']);
+        $this->addField('repaid', ['type'=>'money']);
+        $this->addField('is_active', ['type'=>'boolean']);
     }
 }
 
 class MyApp extends \atk4\ui\App {
 
-    public $title = 'Money Lending App 0.2';
+    public $title = 'Money Lending App 0.3';
 
     public $db;
+
+    public $user;
 
     function __construct($where = 'inside') {
         parent::__construct();
@@ -48,11 +85,26 @@ class MyApp extends \atk4\ui\App {
             return;
         }
 
+        if (!isset($_SESSION['user_id'])) {
+            $this->initLayout('Centered');
+            $this->layout->add(['Message', 'Login Required', 'error']);
+            $this->layout->add(['Button', 'Login', 'primary'])->link('index.php');
+            exit;
+        }
+
+        $this->user = new User($this->db);
+        $this->user->load($_SESSION['user_id']);
+
         $this->initLayout('Admin');
 
         $this->layout->leftMenu->addItem(['Contacts', 'icon'=>'users'], 'contact.php');
         $this->layout->leftMenu->addItem(['Loans', 'icon'=>'money'], 'loan.php');
         $this->layout->leftMenu->addItem(['Admin', 'icon'=>'lock'], 'admin.php');
+
+
+        $user_menu = $this->layout->menu->addMenu($this->user['name']);
+        $user_menu->addItem(['Profile', 'icon'=>'user'], 'profile.php');
+        $user_menu->addItem(['Logout', 'icon'=>'sign out'], 'logout.php');
     }
 }
 
