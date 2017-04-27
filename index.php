@@ -36,4 +36,4 @@ $form->onSubmit(function($form) {
 
 });
 
-$app->layout->add(['Button', 'Skip login'])->link('contact.php');
+//$app->layout->add(['Button', 'Skip login'])->link('contact.php');

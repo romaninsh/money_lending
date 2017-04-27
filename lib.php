@@ -98,12 +98,11 @@ class MyApp extends \atk4\ui\App {
         $this->initLayout('Admin');
 
         $this->layout->leftMenu->addItem(['Contacts', 'icon'=>'users'], 'contact.php');
-        $this->layout->leftMenu->addItem(['Loans', 'icon'=>'money'], 'loan.php');
         $this->layout->leftMenu->addItem(['Admin', 'icon'=>'lock'], 'admin.php');
 
 
         $user_menu = $this->layout->menu->addMenu($this->user['name']);
-        $user_menu->addItem(['Profile', 'icon'=>'user'], 'profile.php');
+        //$user_menu->addItem(['Profile', 'icon'=>'user'], 'profile.php');
         $user_menu->addItem(['Logout', 'icon'=>'sign out'], 'logout.php');
     }
 }
