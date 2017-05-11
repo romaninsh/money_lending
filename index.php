@@ -8,15 +8,15 @@ if (isset($_SESSION['user_id'])) {
 }
 
 
-$app = new MyApp('login');
+$app = new MyApp(false);
 
 $form = $app->layout->add('Form');
 $form->addField('email');
 $form->addField('password');
 
-$form->onSubmit(function($form) { 
+$form->onSubmit(function($form) use($app) { 
 
-    $m = new User($form->app->db);
+    $m = new User($app->db);
     $m->tryLoadBy('email', $form->model['email']);
 
     if (!$m->loaded()) { 
@@ -29,11 +29,5 @@ $form->onSubmit(function($form) {
 
     $_SESSION['user_id'] = $m->id;
 
-    // Start Session
-
     return new \atk4\ui\jsExpression('document.location="contact.php"');
-    //return $form->success('You are logged in!');
-
 });
-
-//$app->layout->add(['Button', 'Skip login'])->link('contact.php');

@@ -17,7 +17,6 @@ class User extends \atk4\data\Model {
         ]);
 
         $this->hasMany('Contact', new Contact());
-
     }
 }
 
@@ -53,6 +52,20 @@ class Loan extends \atk4\data\Model {
     }
 }
 
+class ReminderBox extends \atk4\ui\View {
+
+    public $ui='piled segment';
+
+    /**
+     * Specify which contact to remind about
+     */
+    public function setModel(\atk4\data\Model $contact) {
+        $this->add('Header')->set('Please repay my loan, '.$contact['name']);
+        $this->add('Text')->addParagraph('I have loaned you a total of 123 from which you still owe me 21. Please pay back!');
+        $this->add('Text')->addParagraph('Thanks, '.$contact->ref('user_id')['name']);
+    }
+}
+
 class MyApp extends \atk4\ui\App {
 
     public $title = 'Money Lending App 0.3';
@@ -61,7 +74,7 @@ class MyApp extends \atk4\ui\App {
 
     public $user;
 
-    function __construct($where = 'inside') {
+    function __construct($restricted = true) {
         parent::__construct();
 
         if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
@@ -80,7 +93,7 @@ class MyApp extends \atk4\ui\App {
             $this->db = new \atk4\data\Persistence_SQL('mysql:host=127.0.0.1;dbname=money_lending', 'root', 'root');
         }
 
-        if ($where == 'login') {
+        if (!$restricted) {
             $this->initLayout('Centered');
             return;
         }
