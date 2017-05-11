@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/core.git",
-                "reference": "2cc92d2d5c8c8ba7f5f317327c0fffe47e25f7ea"
+                "reference": "efa29797117bb1bd6848a8f2d94417ed0d5b8bfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/core/zipball/2cc92d2d5c8c8ba7f5f317327c0fffe47e25f7ea",
-                "reference": "2cc92d2d5c8c8ba7f5f317327c0fffe47e25f7ea",
+                "url": "https://api.github.com/repos/atk4/core/zipball/efa29797117bb1bd6848a8f2d94417ed0d5b8bfa",
+                "reference": "efa29797117bb1bd6848a8f2d94417ed0d5b8bfa",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "php",
                 "trains"
             ],
-            "time": "2017-04-13 01:52:32"
+            "time": "2017-05-05 08:55:37"
         },
         {
             "name": "atk4/data",
@@ -61,12 +61,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/data.git",
-                "reference": "3e81ec56d9b3d8b519ad92c66d82838c2c58cf98"
+                "reference": "5ff42f98198f2a4e218e21a435b827865f5c3184"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/data/zipball/3e81ec56d9b3d8b519ad92c66d82838c2c58cf98",
-                "reference": "3e81ec56d9b3d8b519ad92c66d82838c2c58cf98",
+                "url": "https://api.github.com/repos/atk4/data/zipball/5ff42f98198f2a4e218e21a435b827865f5c3184",
+                "reference": "5ff42f98198f2a4e218e21a435b827865f5c3184",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "query",
                 "sql"
             ],
-            "time": "2017-04-13 16:55:00"
+            "time": "2017-04-29 23:01:17"
         },
         {
             "name": "atk4/dsql",
@@ -172,12 +172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/ui.git",
-                "reference": "46d2e1c82d050a0c986d2e2577f11c42e7251edf"
+                "reference": "9c300ae08b2d976cf7c753b4232106b26fd87115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/ui/zipball/46d2e1c82d050a0c986d2e2577f11c42e7251edf",
-                "reference": "46d2e1c82d050a0c986d2e2577f11c42e7251edf",
+                "url": "https://api.github.com/repos/atk4/ui/zipball/9c300ae08b2d976cf7c753b4232106b26fd87115",
+                "reference": "9c300ae08b2d976cf7c753b4232106b26fd87115",
                 "shasum": ""
             },
             "require": {
@@ -222,7 +222,7 @@
                 "web",
                 "widget"
             ],
-            "time": "2017-04-27 08:59:15"
+            "time": "2017-05-03 20:36:04"
         },
         {
             "name": "fzaninotto/faker",
@@ -230,12 +230,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "cc5720eadd8b231a522c1740a52d49a1b061b15d"
+                "reference": "ff29a179c673426c57dc5ccf7635c4ed6fd939db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/cc5720eadd8b231a522c1740a52d49a1b061b15d",
-                "reference": "cc5720eadd8b231a522c1740a52d49a1b061b15d",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ff29a179c673426c57dc5ccf7635c4ed6fd939db",
+                "reference": "ff29a179c673426c57dc5ccf7635c4ed6fd939db",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +272,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-04-24 16:07:00"
+            "time": "2017-05-09 13:46:42"
         }
     ],
     "packages-dev": [],
