@@ -10,6 +10,8 @@ if (isset($_SESSION['user_id'])) {
 
 $app = new MyApp(false);
 
+$app->layout->add(['Message','Use "john@gmail.com" / "test" to login']);
+
 $form = $app->layout->add('Form');
 $form->addField('email');
 $form->addField('password');
